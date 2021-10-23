@@ -25,6 +25,22 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- Dependencia para http request -->
+    <dependency>
+     	<groupId>com.mashape.unirest</groupId>
+     	<artifactId>unirest-java</artifactId>
+     	<version>1.4.9</version>
+	</dependency>
+	
+	<!--  Dependecia para consultar base de datos -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.27</version>
+	</dependency>
+		
+	
   </dependencies>
 
   <build>
