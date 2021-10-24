@@ -16,7 +16,7 @@ public class DBConnection {
 	private final static Logger LOGGER = Logger.getLogger(APIConnection.class.getName());
 		
 	//Metodo para obtener la coneccion a la base de datos
-	private static Connection getConnection() {
+	public static Connection getConnection() {
 		Connection dbConnection = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");  
@@ -25,6 +25,7 @@ public class DBConnection {
 			
 			//Se crea estructura de la tabla temporal para el programa
 			createTempTable(dbConnection);
+			upgradeCodeEncripted(dbConnection);
 			
 			return dbConnection;
 		
@@ -88,8 +89,7 @@ public class DBConnection {
 			while(rst.next()) 
 				if (rst.getInt(8) == 1) {
 					updateRegister("update _filteTable set code=\""+APIConnection.getDencyptedValue(rst.getString(3))
-					+ ",encrypt = 0 "
-					+ "\" where client_id="+rst.getInt(1)+";", dbConnection);
+					+ "\" ,encrypt = 0 where client_id="+rst.getInt(1)+";", dbConnection);
 					
 				}
 				
@@ -119,7 +119,7 @@ public class DBConnection {
 	
 	
 	//Metodo para crear tabla temporal con los datos a implementar
-			public static void createTempTable(Connection dbConnection) {
+			private static void createTempTable(Connection dbConnection) {
 				
 
 				Statement statemnt;
@@ -142,11 +142,5 @@ public class DBConnection {
 					LOGGER.log(Level.CONFIG,"Error en la creacion de la tabla!! "+ e.getMessage());
 				}  
 			}
-
-	public static void main(String[] args) {
-		Connection a = DBConnection.getConnection();
-		upgradeCodeEncripted(a);
-		getClients(a);
-	}
 	
 }

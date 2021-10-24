@@ -1,6 +1,7 @@
 package co.codigoton.dtos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Table {
 	
@@ -48,6 +49,15 @@ public class Table {
 		return clients;
 	}
 
+	public void setClients(ArrayList<Client> clients) throws Exception {
+		if (clients.size() <= 8) {
+			
+			this.clients = clients;	
+		}else {
+			throw new Exception("Has excedido el numero de clientes para esta mesa");
+		}
+	}
+	
 	public void addClients(Client client) throws Exception {
 		if (clients.size() < 8) {
 			
@@ -63,6 +73,16 @@ public class Table {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	
+	public void toStringClients() {
+		
+		System.out.println("nombre de mesa:  "+ name+" con tamano de "+ clients.size());
+		for (Client client : clients) 
+			System.out.println("cliente "+ client.getCode()+" ");
+		
+
 	}
 
 }

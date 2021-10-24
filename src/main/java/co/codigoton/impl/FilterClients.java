@@ -9,20 +9,25 @@ import co.codigoton.utils.DBConnection;
 
 public class FilterClients {
 
-	public ArrayList<Client> filterClient(Connection dbConnection, Table table) {
+	public static ArrayList<Client> filterClient(Connection dbConnection, Table table) {
 		
 		String	query = "select * from evalart_reto._filteTable where encrypt=0";
 		
 		if (table.getClientType() != 0) {
 			query += " and type=" +table.getClientType();
 		
-		}else if (table.getGeographicalCode() != 0) {
+		}
+		
+		if (table.getGeographicalCode() != 0) {
 			query += " and location=" +table.getGeographicalCode();
 		
-		}else if (table.getInitialBalance() > 0) {
+		}
+		
+		if (table.getInitialBalance() > 0) {
 			query += " and Tbalance >=" +table.getInitialBalance();
 		}
-		else if (table.getFinalBalance() > 0) {
+		
+		if (table.getFinalBalance() > 0) {
 			query += " and Tbalance <=" +table.getFinalBalance();
 		}
 		
