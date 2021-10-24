@@ -2,8 +2,8 @@ package co.codigoton.dtos;
 
 public class Client {
 	
-	private int id;
 	private String code;
+	private float totalBalance;
 	private int male;
 	private int type;
 	private String location;
@@ -11,24 +11,28 @@ public class Client {
 	private int encrypt;
 	
 
-	public Client(String code, int male, int type, String location, String company, int encrypt) {
+	public Client(float totalBalance, String code, int male, int type, String location, String company, int encrypt) {
 		this.code = code;
+		this.totalBalance = totalBalance;
 		this.male = male;
 		this.type = type;
 		this.location = location;
 		this.company = company;
 		this.encrypt = encrypt;
 	}
-
+	
 	public Client() {
 		
 	}
 
-
-	public int getId() {
-		return id;
+	public float getTotalBalance() {
+		return totalBalance;
 	}
 
+	public void setTotalBalance(float totalBalance) {
+		this.totalBalance = totalBalance;
+	}
+	
 	public String getCode() {
 		return code;
 	}
