@@ -9,6 +9,7 @@ public class Client {
 	private String location;
 	private String company;
 	private int encrypt;
+	private boolean isDeleted;
 	
 
 	public Client(float totalBalance, String code, int male, int type, String location, String company, int encrypt) {
@@ -92,11 +93,11 @@ public class Client {
 		this.encrypt = encrypt;
 	}
 	
-	
-	
-	
-	
-	
+	public boolean isDeleted() {
+		return isDeleted;
+	}
 
-
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 }
