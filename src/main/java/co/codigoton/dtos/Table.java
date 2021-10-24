@@ -1,7 +1,6 @@
 package co.codigoton.dtos;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Table {
 	
@@ -10,6 +9,7 @@ public class Table {
 	private int geographicalCode=0;
 	private int initialBalance=0;
 	private int finalBalance=0;
+	private boolean isEnableTable= true;
 	private ArrayList<Client> clients;
 	
 
@@ -75,12 +75,27 @@ public class Table {
 		this.name = name;
 	}
 	
+
+	public boolean isEnableTable() {
+		return isEnableTable;
+	}
+
+	public void setEnableTable(boolean isEnableTable) {
+		this.isEnableTable = isEnableTable;
+	}
+
 	
 	public void toStringClients() {
 		
 		System.out.println("nombre de mesa:  "+ name+" con tamano de "+ clients.size());
-		for (Client client : clients) 
-			System.out.println("cliente "+ client.getCode()+" ");
+		if (isEnableTable) {
+			for (Client client : clients) 
+				System.out.println("cliente "+ client.getCode()+" "+ client.getTotalBalance()
+				+" "+ client.getMale()+" "+ client.getType()+" "+ client.getLocation());
+			
+		}else {
+			System.out.println("Mesa cancelada");
+		}
 		
 
 	}
