@@ -25,6 +25,8 @@ public class FileManagement {
             	System.out.println(lectura);
                 lectura = entrada.readLine();
             }
+            if(new String().contains("TC"))
+            	new String().split(":");
             entrada.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace(System.out);
@@ -50,5 +52,7 @@ public class FileManagement {
             ex.printStackTrace(System.out);
         }
     }
+    
+    
     
 }

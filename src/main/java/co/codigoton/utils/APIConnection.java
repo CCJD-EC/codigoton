@@ -40,8 +40,4 @@ public class APIConnection {
 	
 	}
 	
-	public static void main(String[] args) {
-		System.out.print(getDencyptedValue("QzEwMjA5"));
-	}
-
 }
