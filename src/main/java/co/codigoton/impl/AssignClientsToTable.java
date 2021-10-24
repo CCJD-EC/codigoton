@@ -13,7 +13,9 @@ public class AssignClientsToTable {
 	
 	public static void main(String[] args) {
 		
-		//Asignacion de mesas
+		//Variables Locales
+		
+		boolean isEnableTable = true;
 		
 		// Preparando coneccion
 		
@@ -32,8 +34,45 @@ public class AssignClientsToTable {
 			
 			// Llenar mesa con clientes calificados
 			try {
-				table.setClients(getList8(listClient));
+
+				isEnableTable = FilterClients.hasTableCapacity(listClient);
+				
+				// Revisa si la mesa esta habilitada: primer filtro
+				if (!isEnableTable) {
+					table.setEnableTable(isEnableTable);
+					table.setClients(listClient);
+					table.toStringClients();
+					continue;
+				}
+				
+				//TODO. primer filtro
+								
+				listClient = FilterClients.getFilterClientsForCompany(listClient);
+				
+				isEnableTable = FilterClients.hasTableCapacity(listClient);
+				
+				if (!isEnableTable) {
+					table.setEnableTable(isEnableTable);
+					table.setClients(listClient);
+					table.toStringClients();
+					continue;
+				}
+				
+				listClient = FilterClients.getFilterClientsForGender(listClient);
+				
+				isEnableTable = FilterClients.hasTableCapacity(listClient);
+				
+				if (!isEnableTable) {
+					table.setEnableTable(isEnableTable);
+					table.setClients(listClient);
+					table.toStringClients();
+					continue;
+				}
+				
+				table.setClients(listClient);
 				table.toStringClients();
+			
+					
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -41,6 +80,8 @@ public class AssignClientsToTable {
 			
 			
 		}
+		
+		//TODO ESCRITURA DE ARCHIVO
 		
 	}
 	
