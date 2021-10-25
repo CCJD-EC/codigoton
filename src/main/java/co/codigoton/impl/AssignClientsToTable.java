@@ -49,11 +49,8 @@ public class AssignClientsToTable {
 					table.toStringClients();
 					continue;
 				}
-				
-				//TODO segundo filtro
-				
-								
-				// Llenado de la lista de clientes precalificados por compania
+			
+				 // Llenado de la lista de clientes precalificados por compania
 				listClient = FilterClients.getFilterClientsForCompany(listClient);
 				
 				// Comprueba si tiene la cantidad adecuada de clientes
@@ -80,12 +77,12 @@ public class AssignClientsToTable {
 					table.toStringClients();
 					continue;
 				}
-			
+						
 				// Llenado de lista de clientes calificados para la mesa
 				table.setClients(listClient);
 				
 				//Impresion de los clientes de la mesa
-				table.toStringClients();
+				
 			
 					
 			} catch (Exception e) {
@@ -95,6 +92,8 @@ public class AssignClientsToTable {
 			
 			
 		}
+		FileManagement.writeOutput(tables);
+		
 		
 		//TODO ESCRITURA DE ARCHIVO
 		

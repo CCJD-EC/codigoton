@@ -8,8 +8,8 @@ public class Constants {
 	public final static String port = "3316";
 	public final static String host = "localhost";
 	public final static String databaseName = "evalart_reto";
-	public final static String pathEntryValues = "entrada.txt";
-	public final static String pathOutputValues = "salida.txt";
+	public final static String pathEntryValues = "./EntryAndOutput/entrada.txt";
+	public final static String pathOutputValues = "./EntryAndOutput/salida.txt";
 	public final static String queryClient = "select * from evalart_reto._filteTable;";
 	public final static String queryEncrypClient = "select * from evalart_reto._filteTable where encrypt =1;";
 
