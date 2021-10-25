@@ -1,0 +1,8 @@
+co/codigoton/dtos/Constants.class
+co/codigoton/utils/FileManagement.class
+co/codigoton/impl/FilterClients.class
+co/codigoton/dtos/Table.class
+co/codigoton/impl/AssignClientsToTable.class
+co/codigoton/dtos/Client.class
+co/codigoton/utils/APIConnection.class
+co/codigoton/utils/DBConnection.class
