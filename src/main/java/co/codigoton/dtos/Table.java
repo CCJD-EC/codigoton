@@ -85,19 +85,17 @@ public class Table {
 	}
 
 	
-	public void toStringClients() {
+	public String toStringClients() {
 		
-		System.out.println("nombre de mesa:  "+ name+" con tamano de "+ clients.size());
+		String contentOut = "<"+this.getName()+">/n";
 		if (isEnableTable) {
-			for (Client client : clients) 
-				System.out.println("cliente "+ client.getCode()+" "+ client.getTotalBalance()
-				+" "+ client.getMale()+" "+ client.getType()+" "+ client.getLocation());
-			
+			for (Client client : clients)
+				contentOut += client.getCode()+",";		
 		}else {
-			System.out.println("Mesa cancelada");
+			contentOut += "CANCELADA";
 		}
 		
-
+		return contentOut;
 	}
 
 }
